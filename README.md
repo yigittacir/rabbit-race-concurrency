@@ -1,62 +1,46 @@
 🐇 Rabbit Race – Multithreaded Java Simulation
 
-This project is a multithreaded Java simulation where multiple rabbits compete to reach the final box by eating carrots placed randomly by a producer thread.
-The project demonstrates thread synchronization, shared resources, and concurrency control using Java.
+This project is a multithreaded Java simulation in which multiple rabbits compete to reach the final box by eating carrots that are randomly placed by a producer thread.
+The goal of the project is to demonstrate thread synchronization, concurrency control, and shared resource management.
 
 📌 Project Overview
 
 In this simulation:
 
-A Person thread places carrots into random boxes.
+A Person thread randomly places carrots into boxes.
 
-Rabbit threads move between boxes and eat carrots.
+Rabbit threads move forward by eating carrots.
 
-A CarrotRemover thread removes expired carrots after a given time.
+A CarrotRemover thread removes carrots that stay too long in a box.
 
 The game ends when all rabbits reach the final box.
 
-The project focuses on:
+The project focuses on concurrency problems such as:
+
+Race conditions
 
 Thread synchronization
 
-Shared memory safety
-
-Producer–consumer logic
-
-Java concurrency fundamentals
+Shared resource access
 
 🧠 Concepts Used
 
-Multithreading (Thread, Runnable)
+Java Multithreading
 
-Synchronization (synchronized)
+Runnable Interface
 
-Shared resources
+synchronized methods
 
-Race condition prevention
+Shared memory management
 
-Object-oriented design
+Producer–Consumer pattern
 
-Time-based simulation
-
-🧩 Project Structure
-RabbitRace/
-│
-├── src/
-│   └── rabbitrace/
-│       ├── Main.java
-│       ├── Rabbit.java
-│       ├── Box.java
-│       ├── Carrot.java
-│       ├── Person.java
-│       └── CarrotRemover.java
-│
-└── README.md
+Thread coordination
 
 ⚙️ How It Works
-1️⃣ Initialization
+1. Initialization
 
-User inputs:
+The user enters:
 
 Number of rabbits
 
@@ -68,30 +52,25 @@ Carrot expiration time (Y)
 
 Rabbit sleep time (Z)
 
-2️⃣ Threads
+2. Threads
 
-Person Thread: randomly places carrots in boxes.
+Person Thread
+Produces carrots and places them into random boxes.
 
-Rabbit Threads: move between boxes and eat carrots.
+Rabbit Threads
+Move between boxes and eat carrots to progress.
 
-CarrotRemover Thread: removes expired carrots.
+CarrotRemover Thread
+Periodically removes expired carrots.
 
-3️⃣ Synchronization
+3. Synchronization
 
-Each box allows only one carrot at a time
+Only one carrot can exist in a box at a time.
 
-All shared resources are synchronized
+All shared data is synchronized to prevent race conditions.
 
-Game ends when all rabbits reach the last box
+The simulation ends when all rabbits reach the last box.
 
 ▶️ How to Run
 javac rabbitrace/*.java
 java rabbitrace.Main
-
-🧪 Sample Output
-Rabbit-1 eats carrot in box 0
-Rabbit-2 eats carrot in box 1
-Rabbit-1 jumps to box 1
-Carrot expired in box 2
-Rabbit-3 eats carrot in box 2
-Game Over!
